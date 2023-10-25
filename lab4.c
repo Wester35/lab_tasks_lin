@@ -6,7 +6,6 @@ int main()
 {
     const int row = 4, column = 7;
     int matrix[row][column], min;
-    bool check;
 
     srand(time(NULL));
 
@@ -32,10 +31,10 @@ int main()
     {
         check = false;
         for (int i = 0; i < row; i++)
-            if (matrix[i][j] == min)
-                check = true;
-        if (check)
-            printf("Column %d\n", j);
+            if (matrix[i][j] == min) {
+                printf("Column %d\n", j);
+                break;
+            }
     }
 
     return 0;
