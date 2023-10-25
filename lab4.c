@@ -28,14 +28,11 @@ int main()
                 min = matrix[i][j];
 
     for (int j = 0; j < column; j++)
-    {
-        check = false;
         for (int i = 0; i < row; i++)
             if (matrix[i][j] == min) {
                 printf("Column %d\n", j);
                 break;
             }
-    }
 
     return 0;
 }
