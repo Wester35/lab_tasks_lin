@@ -92,7 +92,7 @@ void lab1() {
     printf("First_praktik: \n");
 
     printf("\nEnter digit: ");
-    scanf()"%d", &digit);
+    scanf("%d", &digit);
 
     Check_9(digit);
 }
