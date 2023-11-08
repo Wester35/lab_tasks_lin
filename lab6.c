@@ -92,7 +92,7 @@ void lab1() {
     printf("First_praktik: \n");
 
     printf("\nEnter digit: ");
-    scanf_s("%d", &digit);
+    scanf()"%d", &digit);
 
     Check_9(digit);
 }
@@ -134,7 +134,7 @@ void lab5() {
     printf("\n5th_praktik: \n");
 
     printf("Enter array size: ");
-    scanf_s("%d", &arr_size);
+    scanf("%d", &arr_size);
 
     CheckArrSize(arr_size);
 

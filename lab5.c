@@ -8,7 +8,7 @@ int main() {
     srand(time(NULL));
 
     printf("Enter array size: ");
-    scanf_s("%d", &arr_size);
+    scanf("%d", &arr_size);
 
     if (arr_size < 1) {
         printf("Invalid Value!");
