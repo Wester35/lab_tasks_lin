@@ -16,7 +16,7 @@ int main() {
     }
 
     int* arr = (int*)malloc(sizeof(int) * arr_size);
-
+    
     for (int i = 0; i < arr_size; i++)
         arr[i] = rand() % 21 - 10;
 
