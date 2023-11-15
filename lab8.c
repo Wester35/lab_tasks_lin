@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 void rand_input(int* arr, int arr_size, int index) {
     if (index < arr_size) {
         arr[index] = rand() % 5 - 1;
@@ -9,12 +10,14 @@ void rand_input(int* arr, int arr_size, int index) {
     }
 }
 
+
 void print_arr(int* arr, int arr_size, int index) {
     if (index < arr_size) {
         printf("%4d", arr[index]);
         print_arr(arr, arr_size, index + 1);
     }
 }
+
 
 int search_min_el(int* arr, int arr_size, int index, int min_el) {
     if (index < arr_size) {
@@ -25,6 +28,7 @@ int search_min_el(int* arr, int arr_size, int index, int min_el) {
     else
         return min_el;
 }
+
 
 int counting_min_el(int* arr, int arr_size, int index, int min_el, int res) {
     if (index < arr_size) {

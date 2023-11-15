@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 void Check_9(int digit) {
     if (digit % 9 == 0)
         printf("Yes\n");
@@ -9,10 +10,12 @@ void Check_9(int digit) {
         printf("No\n");
 }
 
+
 void Rand_Input_Arr(int* arr, int array_size) {
     for (int i = 0; i < array_size; i++)
         arr[i] = rand() % 21 - 10;
 }
+
 
 void Rand_Input_Matrix(int size_m, int size_n, int arr[size_m][size_n]) {
     for (int i = 0; i < size_m; i++)
@@ -20,10 +23,12 @@ void Rand_Input_Matrix(int size_m, int size_n, int arr[size_m][size_n]) {
             arr[i][j] = rand() % 7 - 1;
 }
 
+
 void Print_Array(int* arr, int array_size) {
     for (int i = 0; i < array_size; i++)
         printf("%4d", arr[i]);
 }
+
 
 void Print_Matrix(int row, int column, int matrix[row][column]) {
     for (int i = 0; i < row; i++) {
@@ -32,6 +37,7 @@ void Print_Matrix(int row, int column, int matrix[row][column]) {
         printf("\n");
     }
 }
+
 
 int Count_Min_Elem(int* arr, int array_size, int min_arr_elem, int indx) {
     for (int i = 1; i < array_size; i++)
@@ -43,6 +49,7 @@ int Count_Min_Elem(int* arr, int array_size, int min_arr_elem, int indx) {
     return indx;
 }
 
+
 int SearchMinElMat(int matrix[4][7], int row, int column) {
     int min_el = matrix[0][0];
 
@@ -52,6 +59,7 @@ int SearchMinElMat(int matrix[4][7], int row, int column) {
                 min_el = matrix[i][j];
     return min_el;
 }
+
 
 void Print_Matrix_Column(int row, int column, int matrix[row][column]) {
     int minimal_el = SearchMinElMat(matrix, row, column);
@@ -64,10 +72,12 @@ void Print_Matrix_Column(int row, int column, int matrix[row][column]) {
             }
 }
 
+
 void CheckArrSize(int arr_size) {
     if (arr_size < 1)
         printf("Invalid Value!");
 }
+
 
 void NewArrSize(int* arr, int* new_arr, int arr_size, int indx) {
     for (int i = 0; i < arr_size; i++) {
@@ -80,15 +90,17 @@ void NewArrSize(int* arr, int* new_arr, int arr_size, int indx) {
     }
 }
 
+
 void lab1() {
     int digit;
     printf("First_praktik:");
 
     printf("\nEnter digit: ");
-    scanf_s("%d", &digit);
+    scanf("%d", &digit);
 
     Check_9(digit);
 }
+
 
 void lab2() {
     const int n = 10;
@@ -103,6 +115,7 @@ void lab2() {
         Count_Min_Elem(arr_t2, n, min_arr_elem, k));
 }
 
+
 void lab3() {
     const int row = 4, column = 7;
     int matrix[row][column];
@@ -113,13 +126,14 @@ void lab3() {
     Print_Matrix_Column(row, column, matrix);
 }
 
+
 void lab5() {
     int arr_size, indx = 0;
 
     printf("\n5th_praktik: \n");
 
     printf("Enter array size: ");
-    scanf_s("%d", &arr_size);
+    scanf("%d", &arr_size);
 
     CheckArrSize(arr_size);
 
@@ -138,6 +152,7 @@ void lab5() {
     free(arr);
     free(new_arr);;
 }
+
 
 int main() {
     srand(time(NULL));
