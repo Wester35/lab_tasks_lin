@@ -15,11 +15,13 @@ void Print_Matrix(int**, int, int);
 
 int Count_Min_Elem(int*, int, int, int);
 
-int SearchMinElMat(int (*)[], int, int);
+int SearchMinElMat(int**, int, int);
 
-void Print_Matrix_Column(int, int, int (*)[]);
+void Print_Matrix_Column(int**, int, int);
 
 void CheckArrSize(int);
+
+void free_matrix_memory(int**, int);
 
 void NewArrSize(int*, int*, int, int);
 
@@ -47,16 +49,6 @@ int main()
 }
 
 
-
-void Check_9(int digit) 
-{
-    if (digit % 9 == 0)
-        printf("Yes\n");
-    else
-        printf("No\n");
-}
-
-
 void Rand_Input_Arr(int* arr, int array_size) 
 {
     for (int i = 0; i < array_size; i++)
@@ -64,7 +56,7 @@ void Rand_Input_Arr(int* arr, int array_size)
 }
 
 
-void Rand_Input_Matrix(int** arr, int size_m, int size_n) 
+void Rand_Input_Matrix(int** arr, int size_m, int size_n)
 {
     for (int i = 0; i < size_m; i++)
         for (int j = 0; j < size_n; j++)
@@ -79,14 +71,6 @@ void Print_Array(int* arr, int array_size)
 }
 
 
-// void Print_Matrix(int row, int column, int matrix[row][column]) 
-//{
-//     for (int i = 0; i < row; i++) {
-//         for (int j = 0; j < column; j++)
-//             printf("%4d", matrix[i][j]);
-//         printf("\n");
-//     }
-// }
 void Print_Matrix(int **matrix, int rows, int cols) 
 {
     for (int i = 0; i < rows; i++) {
@@ -95,6 +79,7 @@ void Print_Matrix(int **matrix, int rows, int cols)
         printf("\n");
     }
 }
+
 
 int Count_Min_Elem(int* arr, int array_size, int min_arr_elem, int indx) 
 {
@@ -108,7 +93,7 @@ int Count_Min_Elem(int* arr, int array_size, int min_arr_elem, int indx)
 }
 
 
-int SearchMinElMat(int matrix[4][7], int row, int column) 
+int SearchMinElMat(int** matrix, int row, int column)
 {
     int min_el = matrix[0][0];
 
@@ -120,10 +105,9 @@ int SearchMinElMat(int matrix[4][7], int row, int column)
 }
 
 
-void Print_Matrix_Column(int row, int column, int matrix[row][column]) 
+void Print_Matrix_Column(int** matrix, int row, int column)
 {
     int minimal_el = SearchMinElMat(matrix, row, column);
-
     for (int j = 0; j < column; j++)
         for (int i = 0; i < row; i++)
             if (matrix[i][j] == minimal_el) {
@@ -186,10 +170,10 @@ void lab3()
     
     int **matrix = make_dynamic_matrix(row, column);
     printf("\nThird praktik:\n");
-    Rand_Input_Matrix(row, column, matrix);
-   // Print_Matrix(row, column, matrix);
+    Rand_Input_Matrix(matrix, row, column);
     Print_Matrix(matrix, row, column);
-    Print_Matrix_Column(row, column, matrix);
+    Print_Matrix_Column(matrix, row, column);
+    free_matrix_memory(matrix, row);
 }
 
 
@@ -202,6 +186,18 @@ int** make_dynamic_matrix(int rows, int cols)
     }
     return matrix;
 }
+
+
+void free_matrix_memory(int** matrix, int rows)
+{
+    for(int i = 0; i < rows; i++)
+    {
+        free(matrix[i]);
+        matrix[i] = NULL;
+    }
+    free(matrix);
+}
+
 
 void lab5() 
 {
@@ -230,6 +226,14 @@ void lab5()
     free(new_arr);;
 }
 
+
+void Check_9(int digit)
+{
+    if (digit % 9 == 0)
+        printf("Yes\n");
+    else
+        printf("No\n");
+}
 
 // int calcuator(int a, int b, int (*order)(int, int))
 // {
