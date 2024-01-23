@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 
-void Check_9(int);
+bool Check_9(int);
 
 void Rand_Input_Arr(int*, int);
 
@@ -13,19 +14,21 @@ void Print_Array(int*, int);
 
 void Print_Matrix(int**, int, int);
 
+int SearchMinEl(int*, int);
+
 int Count_Min_Elem(int*, int, int, int);
 
 int SearchMinElMat(int**, int, int);
 
-void Print_Matrix_Column(int**, int, int);
+void Print_Index_Matrix_Column(int**, int, int);
 
-void CheckArrSize(int);
+bool CheckArrSize(int);
 
-void free_matrix_memory(int**, int);
-
-void NewArrSize(int*, int*, int, int);
+int* CreateNewArray(int*, int, int*);
 
 int** make_dynamic_matrix(int, int);
+
+void free_matrix_memory(int**, int);
 
 void lab1();
 
@@ -35,21 +38,34 @@ void lab3();
 
 void lab5();
 
-
 int main()
 {
     srand(time(NULL));
 
-    lab1();
-    lab2();
-    lab3();
-    lab5();
+    void (*lab_p) (void);
+    lab_p = lab1;
+    lab_p();
+    lab_p = lab2;
+    lab_p();
+    lab_p = lab3;
+    lab_p();
+    lab_p = lab5;
+    lab_p();
 
     return 0;
 }
 
 
-void Rand_Input_Arr(int* arr, int array_size) 
+bool Check_9(int digit)
+{
+    if (digit % 9 == 0)
+        return true;
+    else
+        return false;
+}
+
+
+void Rand_Input_Arr(int* arr, int array_size)
 {
     for (int i = 0; i < array_size; i++)
         arr[i] = rand() % 21 - 10;
@@ -64,14 +80,14 @@ void Rand_Input_Matrix(int** arr, int size_m, int size_n)
 }
 
 
-void Print_Array(int* arr, int array_size) 
+void Print_Array(int* arr, int array_size)
 {
     for (int i = 0; i < array_size; i++)
         printf("%4d", arr[i]);
 }
 
 
-void Print_Matrix(int **matrix, int rows, int cols) 
+void Print_Matrix(int **matrix, int rows, int cols)
 {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++)
@@ -81,11 +97,18 @@ void Print_Matrix(int **matrix, int rows, int cols)
 }
 
 
-int Count_Min_Elem(int* arr, int array_size, int min_arr_elem, int indx) 
+int SearchMinEl(int* arr, int array_size)
 {
+    int min_arr_elem = arr[0];
     for (int i = 1; i < array_size; i++)
         if (min_arr_elem > arr[i])
             min_arr_elem = arr[i];
+    return min_arr_elem;
+}
+
+
+int Count_Min_Elem(int* arr, int array_size, int min_arr_elem, int indx)
+{
     for (int i = 0; i < array_size; i++)
         if (min_arr_elem == arr[i])
             indx++;
@@ -105,7 +128,7 @@ int SearchMinElMat(int** matrix, int row, int column)
 }
 
 
-void Print_Matrix_Column(int** matrix, int row, int column)
+void Print_Index_Matrix_Column(int** matrix, int row, int column)
 {
     int minimal_el = SearchMinElMat(matrix, row, column);
     for (int j = 0; j < column; j++)
@@ -117,27 +140,36 @@ void Print_Matrix_Column(int** matrix, int row, int column)
 }
 
 
-void CheckArrSize(int arr_size) 
+bool CheckArrSize(int arr_size)
 {
     if (arr_size < 1)
-        printf("Invalid Value!");
+        return false;
+    else
+        return true;
 }
 
 
-void NewArrSize(int* arr, int* new_arr, int arr_size, int indx) 
+int* CreateNewArray(int* arr, int arr_size, int* new_size)
 {
-    for (int i = 0; i < arr_size; i++) {
-        if (arr[i] >= 0) {
+    int* new_arr = NULL;
+    int indx = 0;
+
+    for (int i = 0; i < arr_size; i++)
+    {
+        if (arr[i] >= 0)
+        {
             new_arr = (int*)realloc(new_arr, (indx + 1) * sizeof(int));
             new_arr[indx] = arr[i];
-            printf("%4d", new_arr[indx]);
             indx++;
         }
     }
+
+    *new_size = indx;
+    return new_arr;
 }
 
 
-void lab1() 
+void lab1()
 {
     int digit;
     printf("First_praktik:");
@@ -145,39 +177,41 @@ void lab1()
     printf("\nEnter digit: ");
     scanf("%d", &digit);
 
-    Check_9(digit);
+    if (Check_9(digit))
+        printf("Yes");
+    else
+        printf("No");
 }
 
 
-void lab2() 
+void lab2()
 {
     const int n = 10;
-    int arr_t2[n], k = 0, min_arr_elem;
+    int arr_t2[n], k = 0;
 
     printf("\nSecond_praktik:\n");
     Rand_Input_Arr(arr_t2, n);
     Print_Array(arr_t2, n);
 
-    min_arr_elem = arr_t2[0];
     printf("\nThe number of min in the array is equal to %d \n",
-        Count_Min_Elem(arr_t2, n, min_arr_elem, k));
+           Count_Min_Elem(arr_t2, n, SearchMinEl(arr_t2, n), k));
 }
 
 
-void lab3() 
+void lab3()
 {
     const int row = 4, column = 7;
-    
+
     int **matrix = make_dynamic_matrix(row, column);
     printf("\nThird praktik:\n");
     Rand_Input_Matrix(matrix, row, column);
     Print_Matrix(matrix, row, column);
-    Print_Matrix_Column(matrix, row, column);
+    Print_Index_Matrix_Column(matrix, row, column);
     free_matrix_memory(matrix, row);
 }
 
 
-int** make_dynamic_matrix(int rows, int cols) 
+int** make_dynamic_matrix(int rows, int cols)
 {
     int** matrix = (int**)malloc(rows * sizeof(int*));
     for(int i = 0; i < rows; i++)
@@ -199,7 +233,7 @@ void free_matrix_memory(int** matrix, int rows)
 }
 
 
-void lab5() 
+void lab5()
 {
     int arr_size, indx = 0;
 
@@ -208,34 +242,23 @@ void lab5()
     printf("Enter array size: ");
     scanf("%d", &arr_size);
 
-    CheckArrSize(arr_size);
+    if (CheckArrSize(arr_size))
+    {
+        int* arr = (int*)malloc(sizeof(int) * arr_size);
 
-    int* arr = (int*)malloc(sizeof(int) * arr_size);
+        Rand_Input_Arr(arr, arr_size);
 
-    Rand_Input_Arr(arr, arr_size);
+        printf("\nArray:\n");
+        Print_Array(arr, arr_size);
 
-    printf("\nArray:\n");
-    Print_Array(arr, arr_size);
+        int* new_arr = CreateNewArray(arr, arr_size, &indx);
 
-    int* new_arr = NULL;
+        printf("\nFinal array:\n");
+        Print_Array(new_arr, indx);
 
-    printf("\nFinal array:\n");
-    NewArrSize(arr, new_arr, arr_size, indx);
-    printf("\n");
-    free(arr);
-    free(new_arr);;
-}
-
-
-void Check_9(int digit)
-{
-    if (digit % 9 == 0)
-        printf("Yes\n");
+        free(arr);
+        free(new_arr);
+    }
     else
-        printf("No\n");
+        printf("Invalid value!");
 }
-
-// int calcuator(int a, int b, int (*order)(int, int))
-// {
-
-// }

@@ -1,0 +1,3 @@
+C:/Users/wester35/Documents/Github/lab_tasks_lin/laba9/cmake-build-debug/CMakeFiles/laba9.dir
+C:/Users/wester35/Documents/Github/lab_tasks_lin/laba9/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/wester35/Documents/Github/lab_tasks_lin/laba9/cmake-build-debug/CMakeFiles/rebuild_cache.dir
