@@ -51,7 +51,7 @@ int main()
     lab_p();
     lab_p = lab5;
     lab_p();
-
+    printf("\n\n*********************************\n\n");
     return 0;
 }
 
@@ -130,10 +130,11 @@ int SearchMinElMat(int** matrix, int row, int column)
 
 void Print_Index_Matrix_Column(int** matrix, int row, int column)
 {
-    int minimal_el = SearchMinElMat(matrix, row, column);
+    int (*minimal_el)(int**, int, int);
+    minimal_el = SearchMinElMat;
     for (int j = 0; j < column; j++)
         for (int i = 0; i < row; i++)
-            if (matrix[i][j] == minimal_el) {
+            if (matrix[i][j] == minimal_el(matrix, row, column)) {
                 printf("Column %d\n", j);
                 break;
             }
@@ -171,13 +172,15 @@ int* CreateNewArray(int* arr, int arr_size, int* new_size)
 
 void lab1()
 {
+    bool (*check)(int);
+    check = Check_9;
     int digit;
     printf("First_praktik:");
 
     printf("\nEnter digit: ");
     scanf("%d", &digit);
 
-    if (Check_9(digit))
+    if (check(digit))
         printf("Yes");
     else
         printf("No");
@@ -188,26 +191,35 @@ void lab2()
 {
     const int n = 10;
     int arr_t2[n], k = 0;
-
+    void (*arr_interaction_p)(int*, int);
+    int (*search_element_p)(int*, int);
+    int (*count_element_p)(int*, int, int, int);
     printf("\nSecond_praktik:\n");
-    Rand_Input_Arr(arr_t2, n);
-    Print_Array(arr_t2, n);
-
+    arr_interaction_p = Rand_Input_Arr;
+    arr_interaction_p(arr_t2, n);
+    arr_interaction_p = Print_Array;
+    arr_interaction_p(arr_t2, n);
+    search_element_p = SearchMinEl;
+    count_element_p = Count_Min_Elem;
     printf("\nThe number of min in the array is equal to %d \n",
-           Count_Min_Elem(arr_t2, n, SearchMinEl(arr_t2, n), k));
+           count_element_p(arr_t2, n, search_element_p(arr_t2, n), k));
 }
 
 
 void lab3()
 {
     const int row = 4, column = 7;
-
-    int **matrix = make_dynamic_matrix(row, column);
+    int** (*make_matrix_p)(int, int);
+    void (*free_matrix_p)(int**, int);
+    void* (*matrix_interaction_p)(int**, int, int); /////
+    make_matrix_p = &make_dynamic_matrix;
+    free_matrix_p = free_matrix_memory;
+    int **matrix = make_matrix_p(row, column);
     printf("\nThird praktik:\n");
     Rand_Input_Matrix(matrix, row, column);
     Print_Matrix(matrix, row, column);
     Print_Index_Matrix_Column(matrix, row, column);
-    free_matrix_memory(matrix, row);
+    free_matrix_p(matrix, row);
 }
 
 
@@ -262,3 +274,5 @@ void lab5()
     else
         printf("Invalid value!");
 }
+
+//float calculator(str int(*order)(int, int))
