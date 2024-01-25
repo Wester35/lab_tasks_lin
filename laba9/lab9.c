@@ -6,6 +6,16 @@
 
 bool Check_9(int);
 
+void calculator();
+
+int addition(int, int);
+
+int subtraction(int, int);
+
+int multiply(int, int);
+
+int division(int, int);
+
 void Rand_Input_Arr(int*, int);
 
 void Rand_Input_Matrix(int**, int, int);
@@ -52,6 +62,7 @@ int main()
     lab_p = lab5;
     lab_p();
     printf("\n\n*********************************\n\n");
+    calculator();
     return 0;
 }
 
@@ -194,6 +205,7 @@ void lab2()
     void (*arr_interaction_p)(int*, int);
     int (*search_element_p)(int*, int);
     int (*count_element_p)(int*, int, int, int);
+
     printf("\nSecond_praktik:\n");
     arr_interaction_p = Rand_Input_Arr;
     arr_interaction_p(arr_t2, n);
@@ -211,14 +223,20 @@ void lab3()
     const int row = 4, column = 7;
     int** (*make_matrix_p)(int, int);
     void (*free_matrix_p)(int**, int);
-    void* (*matrix_interaction_p)(int**, int, int); /////
+    void (*matrix_interaction_p)(int**, int, int); /////
+
     make_matrix_p = &make_dynamic_matrix;
     free_matrix_p = free_matrix_memory;
+
     int **matrix = make_matrix_p(row, column);
+
     printf("\nThird praktik:\n");
-    Rand_Input_Matrix(matrix, row, column);
-    Print_Matrix(matrix, row, column);
-    Print_Index_Matrix_Column(matrix, row, column);
+    matrix_interaction_p = Rand_Input_Matrix;
+    matrix_interaction_p(matrix, row, column);
+    matrix_interaction_p = Print_Matrix;
+    matrix_interaction_p(matrix, row, column);
+    matrix_interaction_p = Print_Index_Matrix_Column;
+    matrix_interaction_p(matrix, row, column);
     free_matrix_p(matrix, row);
 }
 
@@ -257,16 +275,20 @@ void lab5()
     if (CheckArrSize(arr_size))
     {
         int* arr = (int*)malloc(sizeof(int) * arr_size);
-
-        Rand_Input_Arr(arr, arr_size);
+        void (*arr_interaction_p)(int*, int);
+        int* (*create_new_arr_p)(int*, int, int*);
+        arr_interaction_p = Rand_Input_Arr;
+        arr_interaction_p(arr, arr_size);
 
         printf("\nArray:\n");
-        Print_Array(arr, arr_size);
+        arr_interaction_p = Print_Array;
+        arr_interaction_p(arr, arr_size);
 
-        int* new_arr = CreateNewArray(arr, arr_size, &indx);
+        create_new_arr_p = CreateNewArray;
+        int* new_arr = create_new_arr_p(arr, arr_size, &indx);
 
         printf("\nFinal array:\n");
-        Print_Array(new_arr, indx);
+        arr_interaction_p(new_arr, indx);
 
         free(arr);
         free(new_arr);
@@ -275,4 +297,47 @@ void lab5()
         printf("Invalid value!");
 }
 
-//float calculator(str int(*order)(int, int))
+void calculator()
+{
+    int (**arithmetic_oper)(int, int) = malloc(4 * sizeof(int (*) (int, int)));
+    int a = 0, b = 0, operation = 0;
+
+    arithmetic_oper[0] = addition;
+    arithmetic_oper[1] = subtraction;
+    arithmetic_oper[2] = multiply;
+    arithmetic_oper[3] = division;
+    
+    printf("Enter a: ");
+    scanf("%d", &a);
+    printf("\nEnter b: ");
+    scanf("%d", &b);
+    printf("\nSelect operation\n1: +\n2: -\n3: *\n4: /\n:: ");
+    scanf("%d", &operation);
+    
+    if (operation >= 1 && operation <= 4)
+        printf("\n\nResult: %d\n", arithmetic_oper[operation - 1](a, b));
+    else
+        printf("\n\nInvalid operation\n");
+
+    free(arithmetic_oper);
+}
+
+int addition(int a, int b)
+{
+    return a + b;
+}
+
+int subtraction(int a, int b)
+{
+    return a - b;
+}
+
+int multiply(int a, int b)
+{
+    return a * b;
+}
+
+int division(int a, int b)
+{
+    return a / b;
+}
