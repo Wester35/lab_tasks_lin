@@ -5,17 +5,71 @@
 #include <string.h>
 #include <time.h>
 
+const char femaleNames[10][20] = {
+        "Natasha",
+        "Ilya",
+        "Sasha",
+        "Valya",
+        "Buzya",
+        "Maria",
+        "Olga",
+        "Anna",
+        "Tatiana",
+        "Yulia"
+};
+
+const char maleNames[10][20] = {
+        "Masha",
+        "Artem",
+        "Vasya",
+        "Kuzya",
+        "Misha",
+        "Dmitry",
+        "Ivan",
+        "Alexey",
+        "Sergei",
+        "Pavel"
+};
+
+const char femaleSurnames[10][20] = {
+        "Ivanova",
+        "Sidorova",
+        "Popova",
+        "Vasilieva",
+        "Novikova",
+        "Petrova",
+        "Smirnova",
+        "Kuznetsova",
+        "Mikhailova",
+        "Fedorova"
+};
+
+const char maleSurnames[10][20] = {
+        "Petrov",
+        "Smirnov",
+        "Kuznetsov",
+        "Mikhailov",
+        "Fedorov",
+        "Ivanov",
+        "Sidorov",
+        "Popov",
+        "Vasiliev",
+        "Novikov"
+};
 
 struct Student {
-    char* surname;
-    char* name;
-    char* gender;
+    char surname[20];
+    char name[20];
+    char gender[6];
     int age;
-    char* group;
+    int group;
     int math_mark;
     int phys_mark;
     int chemistry_mark;
+    void (*printStudent)(struct Student* student);
 };
+
+void print_stud(struct Student* student);
 
 struct Node {
     struct Student* value;
@@ -30,14 +84,20 @@ struct List {
     struct Student* (*erase)(struct List* list, int index);
     struct Student* (*get)(struct List* list, int index);
     void (*append)(struct List* list, struct Student* student);
-    bool (*swap)(struct List* list, int first_index, int second_index);
+    bool (*swap)(struct List* list, struct Student* first_student,
+                 struct Student* second_student);
+    void (*free_list)(struct List* list);
+    void (*surname_sort_asc)(struct List* list, int size);
 };
 
 void list_insert(struct List* list, struct Student* student, int index);
 struct Student* list_erase(struct List* list, int index);
 struct Student* list_get(struct List* list, int index);
 void list_append(struct List* list, struct Student* student);
-bool list_swap(struct List* list, int first_index, int second_index);
+bool list_swap(struct List* list, struct Student* first_student,
+                struct Student* second_student);
+void free_list(struct List* list);
+void surname_sort_asc(struct List* list, int size);
 
 struct List* init(struct List* result) {
     result = malloc(sizeof(struct List));
@@ -49,7 +109,67 @@ struct List* init(struct List* result) {
     result->get = list_get;
     result->append = list_append;
     result->swap = list_swap;
+    result->free_list = free_list;
+    result->surname_sort_asc = surname_sort_asc;
     return result;
+}
+
+int main() {
+    srand(time(NULL));
+    system("chcp 65001");
+    const int size_stud = 10;
+    struct List* students = init(students);
+    printf("****************************Before:");
+    for (int i = 0; i < size_stud; i++) {
+        struct Student* student = malloc(sizeof(struct Student));
+        student->printStudent = print_stud;
+
+        if (rand() % 2 == 1) {
+            strcpy(student->surname, maleSurnames[rand() % 10]);
+            strcpy(student->name, maleNames[rand() % 10]);
+            strcpy(student->gender, "Male");
+        } else {
+            strcpy(student->surname, femaleSurnames[rand() % 10]);
+            strcpy(student->name, femaleNames[rand() % 10]);
+            strcpy(student->gender, "Female");
+        }
+
+        student->age = rand() % 5 + 16;
+        student->group = rand() % 5 + 1;
+        student->math_mark = rand() % 3 + 3;
+        student->phys_mark = rand() % 3 + 3;
+        student->chemistry_mark = rand() % 3 + 3;
+
+        students->append(students, student);
+        student->printStudent(list_get(students, i));
+    }
+    printf("*******************************After:");
+    students->surname_sort_asc(students, size_stud);
+    for (int i = 0; i < size_stud; i++){
+        print_stud(list_get(students, i));
+    }
+    students->free_list(students);
+    return 0;
+}
+
+void surname_sort_asc(struct List* list, int size) {
+    char buf[20];
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (strcmp(list->get(list, j)->surname, list->get(list, j + 1)->surname) > 0) {
+                strcpy(buf, list->get(list, j)->surname);
+                strcpy(list->get(list, j)->surname, list->get(list, j + 1)->surname);
+                strcpy(list->get(list, j + 1)->surname, buf);
+            }
+        }
+    }
+}
+
+void print_stud(struct Student* student){
+    printf("\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
+           "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
+           student->surname, student->name, student->gender, student->age, student->group,
+           student->math_mark, student->phys_mark, student->chemistry_mark);
 }
 
 void list_insert(struct List* list, struct Student* student, int index) {
@@ -83,6 +203,18 @@ void list_insert(struct List* list, struct Student* student, int index) {
             i++;
         }
     }
+}
+
+void free_list(struct List* list) {
+    struct Node* current = list->head;
+    while (current != NULL) {
+        struct Node* next = current->next;
+        free(current->value);
+        free(current);
+        current = next;
+    }
+
+    free(list);
 }
 
 struct Student* list_erase(struct List* list, int index) {
@@ -143,32 +275,26 @@ void list_append(struct List* list, struct Student* student) {
     list->size += 1;
 }
 
-bool list_swap(struct List* list, int first_index, int second_index) {
-    if (first_index < 0 || first_index >= list->size || second_index < 0 || second_index >= list->size) {
-        printf("Указаны неверные индексы");
-        return false;
-    }
-
-    int i = 0;
+bool list_swap(struct List* list, struct Student* first_student, struct Student* second_student) {
     struct Node* prev_first_elem = NULL;
-
-    for (struct Node* cur_elem = list->head; cur_elem != NULL; cur_elem = cur_elem->next) {
-        if (i == first_index) {
-            break;
-        }
-        prev_first_elem = cur_elem;
-        i++;
-    }
-
-    i = 0;
     struct Node* prev_second_elem = NULL;
 
     for (struct Node* cur_elem = list->head; cur_elem != NULL; cur_elem = cur_elem->next) {
-        if (i == second_index) {
+        if (cur_elem->value == first_student) {
+            prev_first_elem = cur_elem;
+        }
+        if (cur_elem->value == second_student) {
+            prev_second_elem = cur_elem;
+        }
+
+        if (prev_first_elem != NULL && prev_second_elem != NULL) {
             break;
         }
-        prev_second_elem = cur_elem;
-        i++;
+    }
+
+    if (prev_first_elem == NULL || prev_second_elem == NULL) {
+        printf("Ошибка поиска элементов\n");
+        return false;
     }
 
     struct Node* tmp = prev_first_elem->next;
@@ -180,25 +306,4 @@ bool list_swap(struct List* list, int first_index, int second_index) {
     prev_second_elem->next->next = tmp;
 
     return true;
-}
-
-void print_stud(struct Student* student);
-
-
-int main(){
-    system("chcp 65001");
-    struct List* students = init(students);
-    struct Student student1 =
-            {"Карташов", "Антон", "М",
-             17, "ИСП-206", 5, 3, 4};
-    students->append(students, &student1);
-    print_stud(list_get(students, 0));
-    return 0;
-}
-
-void print_stud(struct Student* student){
-    printf("Surname: %s\nName: %s\nGender: %s\nAge: %d\n"
-           "Group: %s\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
-           student->surname, student->name, student->gender, student->age, student->group,
-           student->math_mark, student->phys_mark, student->chemistry_mark);
 }
