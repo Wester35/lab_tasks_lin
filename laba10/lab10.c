@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
 #include <time.h>
@@ -117,9 +116,12 @@ struct List* init(struct List* result) {
 int main() {
     srand(time(NULL));
     system("chcp 65001");
+
     const int size_stud = 10;
     struct List* students = init(students);
-    printf("****************************Before:");
+
+    printf("******Before******");
+
     for (int i = 0; i < size_stud; i++) {
         struct Student* student = malloc(sizeof(struct Student));
         student->printStudent = print_stud;
@@ -143,7 +145,8 @@ int main() {
         students->append(students, student);
         student->printStudent(list_get(students, i));
     }
-    printf("*******************************After:");
+
+    printf("\n\n******After******");
     students->surname_sort_asc(students, size_stud);
     for (int i = 0; i < size_stud; i++){
         print_stud(list_get(students, i));
@@ -153,16 +156,10 @@ int main() {
 }
 
 void surname_sort_asc(struct List* list, int size) {
-    char buf[20];
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - i - 1; j++) {
-            if (strcmp(list->get(list, j)->surname, list->get(list, j + 1)->surname) > 0) {
-                strcpy(buf, list->get(list, j)->surname);
-                strcpy(list->get(list, j)->surname, list->get(list, j + 1)->surname);
-                strcpy(list->get(list, j + 1)->surname, buf);
-            }
-        }
-    }
+    for (int i = 0; i < size - 1; i++)
+        for (int j = 0; j < size - i - 1; j++)
+            if (strcmp(list->get(list, j)->surname, list->get(list, j + 1)->surname) > 0)
+                list_swap(list, list->get(list, j), list->get(list, j + 1));
 }
 
 void print_stud(struct Student* student){
@@ -207,6 +204,7 @@ void list_insert(struct List* list, struct Student* student, int index) {
 
 void free_list(struct List* list) {
     struct Node* current = list->head;
+
     while (current != NULL) {
         struct Node* next = current->next;
         free(current->value);
@@ -234,6 +232,7 @@ struct Student* list_erase(struct List* list, int index) {
         if (i == index) {
             struct Student* result = cur_elem->value;
             struct Node* elem = cur_elem;
+
             prev_elem->next = cur_elem->next;
             list->size -= 1;
             free(elem);
@@ -249,6 +248,7 @@ struct Student* list_erase(struct List* list, int index) {
 
 struct Student* list_get(struct List* list, int index) {
     int i = 0;
+
     for (struct Node* cur_elem = list->head; cur_elem != NULL; cur_elem = cur_elem->next) {
         if (i == index)
             return cur_elem->value;
@@ -297,13 +297,9 @@ bool list_swap(struct List* list, struct Student* first_student, struct Student*
         return false;
     }
 
-    struct Node* tmp = prev_first_elem->next;
-    prev_first_elem->next = prev_second_elem->next;
-    prev_second_elem->next = tmp;
-
-    tmp = prev_first_elem->next->next;
-    prev_first_elem->next->next = prev_second_elem->next->next;
-    prev_second_elem->next->next = tmp;
+    struct Student* tmp_student = prev_first_elem->value;
+    prev_first_elem->value = prev_second_elem->value;
+    prev_second_elem->value = tmp_student;
 
     return true;
 }
