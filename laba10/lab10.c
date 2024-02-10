@@ -115,7 +115,7 @@ struct List* init(struct List* result) {
 
 int main() {
     srand(time(NULL));
-    system("chcp 65001");
+    //system("chcp 65001");
 
     const int size_stud = 10;
     struct List* students = init(students);
@@ -158,7 +158,8 @@ int main() {
 void surname_sort_asc(struct List* list, int size) {
     for (int i = 0; i < size - 1; i++)
         for (int j = 0; j < size - i - 1; j++)
-            if (strcmp(list->get(list, j)->surname, list->get(list, j + 1)->surname) > 0)
+            if (strcmp(list->get(list, j)->surname,
+                       list->get(list, j + 1)->surname) > 0)
                 list_swap(list, list->get(list, j), list->get(list, j + 1));
 }
 
@@ -190,7 +191,9 @@ void list_insert(struct List* list, struct Student* student, int index) {
         }
 
         int i = 0;
-        for (struct Node* cur_elem = list->head; cur_elem != NULL; cur_elem = cur_elem->next) {
+        for (   struct Node* cur_elem = list->head;
+                cur_elem != NULL;
+                cur_elem = cur_elem->next) {
             if (i == index - 1) {
                 new_node->next = cur_elem->next;
                 cur_elem->next = new_node;
@@ -228,7 +231,9 @@ struct Student* list_erase(struct List* list, int index) {
         return result;
     }
 
-    for (struct Node* cur_elem = list->head; cur_elem != NULL; cur_elem = cur_elem->next) {
+    for (   struct Node* cur_elem = list->head;
+            cur_elem != NULL;
+            cur_elem = cur_elem->next) {
         if (i == index) {
             struct Student* result = cur_elem->value;
             struct Node* elem = cur_elem;
@@ -249,7 +254,9 @@ struct Student* list_erase(struct List* list, int index) {
 struct Student* list_get(struct List* list, int index) {
     int i = 0;
 
-    for (struct Node* cur_elem = list->head; cur_elem != NULL; cur_elem = cur_elem->next) {
+    for (   struct Node* cur_elem = list->head;
+            cur_elem != NULL;
+            cur_elem = cur_elem->next) {
         if (i == index)
             return cur_elem->value;
         i++;
@@ -279,7 +286,9 @@ bool list_swap(struct List* list, struct Student* first_student, struct Student*
     struct Node* prev_first_elem = NULL;
     struct Node* prev_second_elem = NULL;
 
-    for (struct Node* cur_elem = list->head; cur_elem != NULL; cur_elem = cur_elem->next) {
+    for (   struct Node* cur_elem = list->head;
+            cur_elem != NULL;
+            cur_elem = cur_elem->next) {
         if (cur_elem->value == first_student) {
             prev_first_elem = cur_elem;
         }

@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "laba10.exe"
-		},
-		{
-			"path" : "laba10.pdb"
+			"path" : "laba10"
 		}
 	],
 	"backtrace" : 1,
@@ -68,16 +65,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
 	"name" : "laba10",
-	"nameOnDisk" : "laba10.exe",
+	"nameOnDisk" : "laba10",
 	"paths" : 
 	{
 		"build" : ".",

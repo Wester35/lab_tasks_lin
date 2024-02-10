@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Wstr35/Desktop/lab_tasks_lin/laba10/lab10.c" "CMakeFiles/laba10.dir/lab10.c.obj" "gcc" "CMakeFiles/laba10.dir/lab10.c.obj.d"
+  "/home/wester/lab_tasks_lin/laba10/lab10.c" "CMakeFiles/laba10.dir/lab10.c.o" "gcc" "CMakeFiles/laba10.dir/lab10.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
