@@ -1,0 +1,3 @@
+/home/wester/lab_tasks_lin/tst/cmake-build-debug/CMakeFiles/tst.dir
+/home/wester/lab_tasks_lin/tst/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/wester/lab_tasks_lin/tst/cmake-build-debug/CMakeFiles/rebuild_cache.dir
