@@ -61,6 +61,12 @@ build CMakeFiles/laba11.dir/tree.c.obj: C_COMPILER__laba11_unscanned_Debug C$:/U
   OBJECT_DIR = CMakeFiles\laba11.dir
   OBJECT_FILE_DIR = CMakeFiles\laba11.dir
 
+build CMakeFiles/laba11.dir/student.c.obj: C_COMPILER__laba11_unscanned_Debug C$:/Users/wstr/Desktop/lab_tasks_lin/laba11/student.c || cmake_object_order_depends_target_laba11
+  DEP_FILE = CMakeFiles\laba11.dir\student.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\laba11.dir
+  OBJECT_FILE_DIR = CMakeFiles\laba11.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target laba11
@@ -69,7 +75,7 @@ build CMakeFiles/laba11.dir/tree.c.obj: C_COMPILER__laba11_unscanned_Debug C$:/U
 #############################################
 # Link the executable laba11.exe
 
-build laba11.exe: C_EXECUTABLE_LINKER__laba11_Debug CMakeFiles/laba11.dir/lab11.c.obj CMakeFiles/laba11.dir/tree.c.obj
+build laba11.exe: C_EXECUTABLE_LINKER__laba11_Debug CMakeFiles/laba11.dir/lab11.c.obj CMakeFiles/laba11.dir/tree.c.obj CMakeFiles/laba11.dir/student.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\laba11.dir

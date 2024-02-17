@@ -5,4 +5,8 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(laba11
         lab11.c
-        tree.c)
+        tree.c
+        tree.h
+        student.c
+        student.h
+)
