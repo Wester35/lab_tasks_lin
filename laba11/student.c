@@ -57,7 +57,7 @@ const char maleSurnames[10][20] = {
         "Novikov"
 };
 
-void print_stud(struct Student* student){
+void print_stud(Student* student){
     printf("\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
            "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
            student->surname, student->name, student->gender, student->age, student->group,

@@ -6,14 +6,16 @@
 #include "student.h"
 #include "tree.h"
 
+#define Tree(student) tree_init(student)
+
 
 int main() {
     srand(time(NULL));
-    system("chcp 65001");
+    //system("chcp 65001");
 
     const int size_stud = 10;
-    struct Student* student = malloc(sizeof(struct Student));
-    struct Tree* students = tree_init(student);
+    Student* student = malloc(sizeof(Student));
+    Tree* students = Tree(student);
     printf("******Before******");
 
 //    for (int i = 0; i < size_stud; i++) {
@@ -54,10 +56,11 @@ int main() {
         student->chemistry_mark = rand() % 3 + 3;
 
         students->add_node(students, student);
-        free(student);
+        //free(student);
     }
-    free(student);
+
     students->print(students);
+    free(student);
     students->clear(students);
     return 0;
 }

@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/laba11.dir/lab11.c.o CMakeFiles/laba11.dir/tree.c.o CMakeFiles/laba11.dir/student.c.o -o laba11 

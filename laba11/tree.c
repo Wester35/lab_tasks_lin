@@ -7,7 +7,7 @@
 #include <malloc.h>
 #include <string.h>
 
-struct Tree* tree_init(struct Student* student) {
+struct Tree* tree_init(Student* student) {
     struct Tree* result = malloc(sizeof(struct Tree));
     result->student = student;
     result->cnt = 1;
@@ -20,7 +20,7 @@ struct Tree* tree_init(struct Student* student) {
     return result;
 }
 
-void tree_add_node(struct Tree* node, struct Student* student) {
+void tree_add_node(Tree* node, Student* student) {
     int cmp = strcmp(node->student->surname, student->surname);
 
     if (cmp < 0) {
@@ -43,27 +43,27 @@ void tree_add_node(struct Tree* node, struct Student* student) {
     }
 }
 
-void tree_print(struct Tree* node) {
+void tree_print(Tree* node) {
     struct Student* student;
     if (node == NULL) {
         return;
     }
     tree_print(node->right);
-//    printf("\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
-//           "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
-//           node->student->surname, node->student->name, node->student->gender,
-//           node->student->age, node->student->group, node->student->math_mark,
-//           node->student->phys_mark, node->student->chemistry_mark);
-    node->student->printStudent(node->student);
+    printf("\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
+           "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
+           node->student->surname, node->student->name, node->student->gender,
+           node->student->age, node->student->group, node->student->math_mark,
+           node->student->phys_mark, node->student->chemistry_mark);
+    //node->student->printStudent(node->student);
     tree_print(node->left);
 }
 
-void tree_clear(struct Tree* node) {
+void tree_clear(Tree* node) {
     if (node->left != NULL)
         tree_clear(node->left);
     if (node->right != NULL)
         tree_clear(node->right);
-    free(node->student);
+    //free(node->student);
     free(node);
 }
 

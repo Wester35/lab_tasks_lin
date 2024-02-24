@@ -8,7 +8,7 @@
 #include <malloc.h>
 #include <stdio.h>
 
-struct Tree {
+typedef struct Tree {
     struct Student *student;
     struct Tree* left;
     struct Tree* right;
@@ -16,12 +16,12 @@ struct Tree {
     void (*add_node)(struct Tree* node, struct Student* student);
     void (*print)(struct Tree* node);
     void (*clear)(struct Tree* node);
-};
+} Tree;
 
-void tree_add_node(struct Tree* node, struct Student* student);
-void tree_print(struct Tree* node);
-void tree_clear(struct Tree* node);
+void tree_add_node(Tree* node, Student* student);
+void tree_print(Tree* node);
+void tree_clear(Tree* node);
 
-struct Tree *tree_init(struct Student* student);
+Tree *tree_init(Student* student);
 #endif //LABA11_TREE_H
 
