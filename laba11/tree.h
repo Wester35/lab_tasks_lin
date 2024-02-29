@@ -8,8 +8,11 @@
 #include <malloc.h>
 #include <stdio.h>
 
+#define Tree(student) tree_init(student)
+
+
 typedef struct Tree {
-    struct Student *student;
+    struct Student** student;
     struct Tree* left;
     struct Tree* right;
     int cnt;
