@@ -9,7 +9,7 @@
 
 int main() {
     srand(time(NULL));
-    system("chcp 65001");
+    //system("chcp 65001");
 
     const int size_stud = 10;
     //Student* student = malloc(sizeof(Student));
@@ -80,8 +80,7 @@ int main() {
 //        i++;
 //    }
     Student stud = {"hdfh", "kmsks", "jdj", 1, 1, 1, 1, 1, print_stud};
-    Tree* students = Tree(&stud);
-
+    Tree* students = Tree();
     for (int i = 0; i < size_stud; i++) {
         Student* student = malloc(sizeof(Student));
         student->printStudent = print_stud;
@@ -101,6 +100,8 @@ int main() {
         student->math_mark = rand() % 3 + 3;
         student->phys_mark = rand() % 3 + 3;
         student->chemistry_mark = rand() % 3 + 3;
+
+
         students->add_node(students, student);
         free(student);
 

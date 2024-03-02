@@ -10,7 +10,7 @@ Tree* tree_init(Student* stud) {
     struct Tree* result = malloc(sizeof(struct Tree));
     result->cnt = 1;
     result->student = malloc(result->cnt * sizeof(Student));
-    result->student[result->cnt - 1] = stud;
+    result->student[0] = stud;
     result->add_node = tree_add_node;
     result->right = NULL;
     result->left = NULL;
@@ -67,28 +67,11 @@ void tree_add_node(Tree* node, Student* student) {
         }
         node->add_node(node->right, student);
         return;
+    } else{
+        node->cnt++;
+        node->student = realloc(node->student, node->cnt * sizeof(Student*));
     }
 
-    // Создайте новый объект Student и скопируйте данные
-    Student* newStudent = malloc(sizeof(Student));
-    if (newStudent == NULL) {
-        fprintf(stderr, "Memory allocation error\n");
-        exit(EXIT_FAILURE);
-    }
-
-    strcpy(newStudent->surname, student->surname);
-    strcpy(newStudent->name, student->name);
-    strcpy(newStudent->gender, student->gender);
-    newStudent->age = student->age;
-    newStudent->group = student->group;
-    newStudent->math_mark = student->math_mark;
-    newStudent->phys_mark = student->phys_mark;
-    newStudent->chemistry_mark = student->chemistry_mark;
-    newStudent->printStudent = student->printStudent;
-
-    // Увеличиваем размер массива и сохраняем новый объект
-    node->cnt++;
-    node->student[node->cnt - 1] = newStudent;
 }
 
 void tree_print(Tree* node) {
