@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/laba10.dir/lab10.c.o"
-  "CMakeFiles/laba10.dir/lab10.c.o.d"
-  "laba10"
+  "CMakeFiles/laba10.dir/lab10.c.obj"
+  "CMakeFiles/laba10.dir/lab10.c.obj.d"
+  "laba10.exe"
+  "laba10.exe.manifest"
   "laba10.pdb"
+  "liblaba10.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

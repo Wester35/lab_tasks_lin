@@ -149,7 +149,8 @@ int main() {
     printf("\n\n******After******");
     students->surname_sort_asc(students, size_stud);
     for (int i = 0; i < size_stud; i++){
-        print_stud(list_get(students, i));
+        struct Student* my_very_VERY_tmp_student = students->get(students, i);
+        my_very_VERY_tmp_student->printStudent(my_very_VERY_tmp_student);
     }
     students->free_list(students);
     return 0;

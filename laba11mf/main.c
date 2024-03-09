@@ -6,7 +6,7 @@
 
 int main() {
     srand(time(NULL));
-
+    system("chcp 65001");
     const int size_stud = 10;
     Tree *students = Tree();
 
@@ -39,7 +39,6 @@ int main() {
     printf("\n\n******After******");
     students->print(students);
     students->clear(students);
-    free(students);
 
     return 0;
 }
