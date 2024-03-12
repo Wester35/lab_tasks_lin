@@ -1,0 +1,8 @@
+# ninja log v5
+9	114	7319398646972030	CMakeFiles/laba12.dir/libs/Student.c.obj	8a8a9b9adf89f6a7
+4	143	7319398647254300	CMakeFiles/laba12.dir/libs/List.c.obj	9a938377d51124b9
+0	150	7319398647339140	CMakeFiles/laba12.dir/main.c.obj	884adfbfcbceb30d
+151	263	7319398648427049	laba12.exe	e908a3fff7819e92
+2	78	7319400146578089	CMakeFiles/laba12.dir/main.c.obj	884adfbfcbceb30d
+5	82	7319400146607991	CMakeFiles/laba12.dir/libs/List.c.obj	9a938377d51124b9
+82	151	7319400147278467	laba12.exe	e908a3fff7819e92
