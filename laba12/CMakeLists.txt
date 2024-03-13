@@ -8,4 +8,6 @@ add_executable(laba12
         libs/Student.c
         libs/Student.h
         libs/List.c
-        libs/List.h)
+        libs/List.h
+        libs/Args.c
+        libs/Args.h)

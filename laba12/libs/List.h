@@ -11,8 +11,9 @@
 #include <string.h>
 #define List(students) init(students)
 
+
 typedef struct Node {
-    void* value;
+    Student* value;
     struct Node* next;
 } Node;
 
@@ -20,20 +21,25 @@ typedef struct List {
     Node* head;
     Node* end;
     unsigned long int size;
-    void* (*get)(struct List* list, int index);
-    void (*append)(struct List* list, Student* student);
-    void* (*swap)(struct List* list, Student* first_student,
-                 Student* second_student);
-    void (*free_list)(struct List* list);
-    void (*sort)(struct List* list, int size);
+    void* (*get)(void* args);
+    void* (*append)(void* args);
+    void* (*swap)(void* args);
+    void* (*free_list)(void* args);
+    void (*sort)(void* args);
 } List;
 
-void* list_get(List* list, int index);
-void list_append(List* list, Student* student);
-void* list_swap(List* list, Student* first_student,
-               Student* second_student);
-void free_list(List* list);
-void sort_by_surname(List* list, int size);
+typedef struct ArgsForDefs{
+    List* list;
+    Student* student1;
+    Student* student2;
+    int index;
+} ArgsForDefs;
+
+void* list_get(void* args);
+void* list_append(void* args);
+void* list_swap(void* args);
+void* free_list(void* args);
+void* sort_by_surname(void* args);
 
 List* init(List* result);
 

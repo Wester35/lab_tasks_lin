@@ -5,7 +5,7 @@
 #ifndef LABA12_STUDENT_H
 #define LABA12_STUDENT_H
 #include <stdio.h>
-
+#include "Args.h"
 
 extern const char femaleNames[10][20];
 extern const char maleNames[10][20];
@@ -21,9 +21,9 @@ typedef struct Student {
     int math_mark;
     int phys_mark;
     int chemistry_mark;
-    void (*printStudent)(struct Student* student);
+    void* (*printStudent)(void*);
 } Student;
 
-void print_stud(Student* student);
+void* print_stud(void* args);
 
 #endif //LABA12_STUDENT_H
