@@ -26,7 +26,6 @@ CMakeFiles/laba12.dir/libs/List.c.obj: C:/Users/wstr/Desktop/lab_tasks_lin/laba1
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/Args.h \
   C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/List.h \
   C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/Student.h
 
@@ -55,7 +54,6 @@ CMakeFiles/laba12.dir/libs/Student.c.obj: C:/Users/wstr/Desktop/lab_tasks_lin/la
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/Args.h \
   C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/List.h \
   C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/Student.h
 
@@ -89,7 +87,6 @@ CMakeFiles/laba12.dir/main.c.obj: C:/Users/wstr/Desktop/lab_tasks_lin/laba12/mai
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/sys/timeb.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/time.h \
   C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
-  C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/Args.h \
   C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/List.h \
   C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/Student.h
 
@@ -117,8 +114,6 @@ C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32
 C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h:
-
-C:/Users/wstr/Desktop/lab_tasks_lin/laba12/libs/Args.h:
 
 C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
 

@@ -41,10 +41,10 @@ int main() {
     for (int i = 0; i < size_stud; i++){
         _args->index = i;
         Student* my_very_VERY_tmp_student = students->get(_args);
-        my_very_VERY_tmp_student->printStudent(my_very_VERY_tmp_student);
+        _args->student1 = my_very_VERY_tmp_student;
+        my_very_VERY_tmp_student->printStudent(_args);
     }
     students->free_list(_args);
     free(_args);
     return 0;
 }
-

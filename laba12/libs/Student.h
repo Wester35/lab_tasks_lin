@@ -5,7 +5,6 @@
 #ifndef LABA12_STUDENT_H
 #define LABA12_STUDENT_H
 #include <stdio.h>
-#include "Args.h"
 
 extern const char femaleNames[10][20];
 extern const char maleNames[10][20];

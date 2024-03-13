@@ -24,7 +24,6 @@ CMakeFiles/laba12.dir/main.c.obj: \
  C:\Users\wstr\Desktop\lab_tasks_lin\laba12\libs/List.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h \
  C:\Users\wstr\Desktop\lab_tasks_lin\laba12\libs/Student.h \
- C:\Users\wstr\Desktop\lab_tasks_lin\laba12\libs/Args.h \
  C:\Users\wstr\Desktop\lab_tasks_lin\laba12\libs/List.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
