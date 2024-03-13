@@ -21,26 +21,26 @@ typedef struct List {
     Node* head;
     Node* end;
     unsigned long int size;
-    void* (*get)(void* args);
-    void* (*append)(void* args);
-    void* (*swap)(void* args);
-    void* (*free_list)(void* args);
-    void (*sort)(void* args);
+    void* (*get)(void*);
+    void* (*append)(void*);
+    void* (*swap)(void*);
+    void* (*free_list)(void*);
+    void* (*sort)(void*);
 } List;
 
 typedef struct ArgsForDefs{
     List* list;
-    Student* student1;
-    Student* student2;
+    Student* student;
+    Student* second_student;
     int index;
 } ArgsForDefs;
 
-void* list_get(void* args);
-void* list_append(void* args);
-void* list_swap(void* args);
-void* free_list(void* args);
-void* sort_by_surname(void* args);
+void* list_get(void*);
+void* list_append(void*);
+void* list_swap(void*);
+void* free_list(void*);
+void* sort_by_surname(void*);
 
-List* init(List* result);
+List* init(List*);
 
 #endif //LABA12_LIST_H

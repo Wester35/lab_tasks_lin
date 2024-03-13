@@ -57,8 +57,8 @@ const char maleSurnames[10][20] = {
 };
 
 void* print_stud(void* args){
-    ArgsForDefs* _args = args;
-    Student* student = _args->student1;
+    ArgsForStudent* _args = args;
+    Student* student = _args->student;
     printf("\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
            "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
            student->surname, student->name, student->gender, student->age, student->group,

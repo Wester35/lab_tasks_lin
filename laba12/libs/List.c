@@ -21,16 +21,14 @@ List* init(List* result) {
 void* sort_by_surname(void* args) {
     ArgsForDefs* _args = args;
     List* list = _args->list;
-    ArgsForDefs* list_get1 = _args;
-    ArgsForDefs* list_get2 = _args;
     for (int i = 0; i < list->size - 1; i++){
         for (int j = 0; j < list->size - i - 1; j++){
-            list_get1->index = j;
-            list_get2->index = j + 1;
-            _args->student1 = list->get(list_get1);
-            _args->student2 = list->get(list_get2);
-            if (strcmp(_args->student1->surname,
-                       _args->student2->surname) > 0){
+            _args->index = j;
+            _args->student = list->get(_args);
+            _args->index = j + 1;
+            _args->second_student = list->get(_args);
+            if (strcmp(_args->student->surname,
+                       _args->second_student->surname) > 0){
                 list_swap(_args);
             }
         }
@@ -42,9 +40,8 @@ void* free_list(void* args) {
     if (args == NULL) {
         return NULL;
     }
-
-    ArgsForDefs* _args = (ArgsForDefs*)args;
-    Node* current = _args->list->head;
+    List* _args = args;
+    Node* current = _args->head;
 
     while (current != NULL) {
         Node* next = current->next;
@@ -52,7 +49,7 @@ void* free_list(void* args) {
         free(current);
         current = next;
     }
-    free(_args->list);
+    free(_args);
     return NULL;
 }
 
@@ -74,7 +71,7 @@ void* list_get(void* args) {
 void* list_append(void* args) {
     ArgsForDefs* _args = args;
     Node* new_node = malloc(sizeof(Node));
-    new_node->value = _args->student1;
+    new_node->value = _args->student;
     new_node->next = NULL;
 
     if (_args->list->size == 0) {
@@ -90,20 +87,18 @@ void* list_append(void* args) {
 }
 
 void* list_swap(void* args) {
-    bool* result;
     Node* prev_first_elem = NULL;
     Node* prev_second_elem = NULL;
     ArgsForDefs* _args = args;
     for (   Node* cur_elem = _args->list->head;
             cur_elem != NULL;
             cur_elem = cur_elem->next) {
-        if (cur_elem->value == _args->student1) {
+        if (cur_elem->value == _args->student) {
             prev_first_elem = cur_elem;
         }
-        if (cur_elem->value == _args->student2) {
+        if (cur_elem->value == _args->second_student) {
             prev_second_elem = cur_elem;
         }
-
         if (prev_first_elem != NULL && prev_second_elem != NULL) {
             break;
         }
@@ -111,13 +106,12 @@ void* list_swap(void* args) {
 
     if (prev_first_elem == NULL || prev_second_elem == NULL) {
         printf("Ошибка поиска элементов\n");
-        *result = false;
-        return result;
+        return NULL;
     }
 
     Student* tmp_student = prev_first_elem->value;
     prev_first_elem->value = prev_second_elem->value;
     prev_second_elem->value = tmp_student;
-    *result = true;
-    return result;
+
+    return NULL;
 }

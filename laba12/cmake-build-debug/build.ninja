@@ -51,19 +51,19 @@ build cmake_object_order_depends_target_laba12: phony || CMakeFiles/laba12.dir
 
 build CMakeFiles/laba12.dir/main.c.obj: C_COMPILER__laba12_unscanned_Debug C$:/Users/Wstr35/Desktop/lab_tasks_lin/laba12/main.c || cmake_object_order_depends_target_laba12
   DEP_FILE = CMakeFiles\laba12.dir\main.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\laba12.dir
   OBJECT_FILE_DIR = CMakeFiles\laba12.dir
 
-build CMakeFiles/laba12.dir/libs/Student.c.obj: C_COMPILER__laba12_unscanned_Debug C$:/Users/Wstr35/Desktop/lab_tasks_lin/laba12/libs/Student.c || cmake_object_order_depends_target_laba12
-  DEP_FILE = CMakeFiles\laba12.dir\libs\Student.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+build CMakeFiles/laba12.dir/libs/List.c.obj: C_COMPILER__laba12_unscanned_Debug C$:/Users/Wstr35/Desktop/lab_tasks_lin/laba12/libs/List.c || cmake_object_order_depends_target_laba12
+  DEP_FILE = CMakeFiles\laba12.dir\libs\List.c.obj.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\laba12.dir
   OBJECT_FILE_DIR = CMakeFiles\laba12.dir\libs
 
-build CMakeFiles/laba12.dir/libs/List.c.obj: C_COMPILER__laba12_unscanned_Debug C$:/Users/Wstr35/Desktop/lab_tasks_lin/laba12/libs/List.c || cmake_object_order_depends_target_laba12
-  DEP_FILE = CMakeFiles\laba12.dir\libs\List.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+build CMakeFiles/laba12.dir/libs/Student.c.obj: C_COMPILER__laba12_unscanned_Debug C$:/Users/Wstr35/Desktop/lab_tasks_lin/laba12/libs/Student.c || cmake_object_order_depends_target_laba12
+  DEP_FILE = CMakeFiles\laba12.dir\libs\Student.c.obj.d
+  FLAGS = -g -std=gnu2x -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\laba12.dir
   OBJECT_FILE_DIR = CMakeFiles\laba12.dir\libs
 
@@ -75,7 +75,7 @@ build CMakeFiles/laba12.dir/libs/List.c.obj: C_COMPILER__laba12_unscanned_Debug 
 #############################################
 # Link the executable laba12.exe
 
-build laba12.exe: C_EXECUTABLE_LINKER__laba12_Debug CMakeFiles/laba12.dir/main.c.obj CMakeFiles/laba12.dir/libs/Student.c.obj CMakeFiles/laba12.dir/libs/List.c.obj
+build laba12.exe: C_EXECUTABLE_LINKER__laba12_Debug CMakeFiles/laba12.dir/main.c.obj CMakeFiles/laba12.dir/libs/List.c.obj CMakeFiles/laba12.dir/libs/Student.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\laba12.dir

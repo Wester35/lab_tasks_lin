@@ -23,6 +23,11 @@ typedef struct Student {
     void* (*printStudent)(void*);
 } Student;
 
-void* print_stud(void* args);
+typedef struct ArgsForStudent{
+    Student* student;
+} ArgsForStudent;
+
+
+void* print_stud(void*);
 
 #endif //LABA12_STUDENT_H

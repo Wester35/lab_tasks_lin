@@ -8,10 +8,11 @@
 
 int main() {
     srand(time(NULL));
-    ArgsForDefs* _args = malloc(sizeof(ArgsForDefs));
+    ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
+    ArgsForStudent* argsForStudent = malloc(sizeof(ArgsForStudent));
     const int size_stud = 10;
     List* students = List(students);
-    _args->list = students;
+    args->list = students;
     printf("******Before******");
     for (int i = 0; i < size_stud; i++) {
         Student* student = malloc(sizeof(Student));
@@ -25,26 +26,28 @@ int main() {
             strcpy(student->name, femaleNames[rand() % 10]);
             strcpy(student->gender, "Female");
         }
-        _args->student1 = student;
-        _args->index = i;
+        args->student = student;
+        args->index = i;
         student->age = rand() % 5 + 16;
         student->group = rand() % 5 + 1;
         student->math_mark = rand() % 3 + 3;
         student->phys_mark = rand() % 3 + 3;
         student->chemistry_mark = rand() % 3 + 3;
-        students->append(_args);
-        student->printStudent(students->get(_args));
+        students->append(args);
+        argsForStudent->student = students->get(args);
+        student->printStudent(argsForStudent);
     }
 
     printf("\n\n******After******");
-    students->sort(_args);
+    students->sort(args);
     for (int i = 0; i < size_stud; i++){
-        _args->index = i;
-        Student* my_very_VERY_tmp_student = students->get(_args);
-        _args->student1 = my_very_VERY_tmp_student;
-        my_very_VERY_tmp_student->printStudent(_args);
+        args->index = i;
+        Student* my_very_VERY_tmp_student = students->get(args);
+        argsForStudent->student = my_very_VERY_tmp_student;
+        my_very_VERY_tmp_student->printStudent(argsForStudent);
     }
-    students->free_list(_args);
-    free(_args);
+    students->free_list(students);
+    free(args);
+    free(argsForStudent);
     return 0;
 }
