@@ -1,0 +1,18 @@
+# ninja log v5
+15	240	7321267484301709	CMakeFiles/laba14.dir/libs/Student.c.obj	da3b2c7bdddfd5a3
+7	316	7321267484451308	CMakeFiles/laba14.dir/libs/List.c.obj	6cd259b3c9329cfc
+0	336	7321267485269122	CMakeFiles/laba14.dir/main.c.obj	b2d1320a39fff4c8
+243	381	7321267486156745	CMakeFiles/laba14.dir/libs/File.c.obj	c6678e8d961ae9a8
+382	521	7321267487503139	laba14.exe	259e9d04f0c2496c
+13	156	7321274082598659	CMakeFiles/laba14.dir/libs/File.c.obj	c6678e8d961ae9a8
+5	172	7321274082748260	CMakeFiles/laba14.dir/main.c.obj	b2d1320a39fff4c8
+2	98	7321274515641785	CMakeFiles/laba14.dir/main.c.obj	b2d1320a39fff4c8
+26	214	7321277007742285	CMakeFiles/laba14.dir/libs/File.c.obj	c6678e8d961ae9a8
+6	228	7321277007881910	CMakeFiles/laba14.dir/main.c.obj	b2d1320a39fff4c8
+7	126	7321280936500171	CMakeFiles/laba14.dir/libs/File.c.obj	c6678e8d961ae9a8
+2	136	7321280936599906	CMakeFiles/laba14.dir/main.c.obj	b2d1320a39fff4c8
+137	264	7321280937796705	laba14.exe	259e9d04f0c2496c
+4	112	7321281814530359	CMakeFiles/laba14.dir/libs/File.c.obj	c6678e8d961ae9a8
+113	223	7321281815609451	laba14.exe	259e9d04f0c2496c
+2	88	7321283340251882	CMakeFiles/laba14.dir/libs/File.c.obj	c6678e8d961ae9a8
+89	191	7321283341220469	laba14.exe	259e9d04f0c2496c
