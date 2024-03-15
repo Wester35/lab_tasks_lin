@@ -4,6 +4,9 @@
 
 #include "Student.h"
 
+
+int stud_count = 0;
+
 c_char femaleNames[10][20] = {
         "Natasha",
         "Ilya",
@@ -57,8 +60,7 @@ c_char maleSurnames[10][20] = {
 };
 
 void* print_stud(void* args){
-    ArgsForStudent* _args = args;
-    Student* student = _args->student;
+    Student* student = args;
     printf("\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
            "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
            student->surname, student->name, student->gender, student->age, student->group,

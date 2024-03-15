@@ -5,34 +5,45 @@
 #include "File.h"
 
 
-c_char* filename = "student_save.wstr";
+c_char* filename = "student_save.sav";
 
-void student_save(Student* student){
+
+void students_save(List* list){
+    ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
+    args->list = list;
     FILE* file = fopen((c_char*) filename, "a");
-    if(file == NULL){
-        fprintf(stderr, "This error raised while student trying to save");
-        exit(-1);
+    for (int i = 0; i < list->size; i++){
+        args->index = i;
+        Student* student = list->get(args);
+        if(file == NULL){
+            fprintf(stderr, "This error raised while student trying to save");
+            exit(-1);
+        }
+        fprintf(file, "\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
+               "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
+               student->surname, student->name, student->gender, student->age, student->group,
+               student->math_mark, student->phys_mark, student->chemistry_mark);
+
     }
-    fprintf(file, "\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
-           "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
-           student->surname, student->name, student->gender, student->age, student->group,
-           student->math_mark, student->phys_mark, student->chemistry_mark);
+    free(args);
     fclose(file);
 }
 
-void* student_load(List* list){
-    ArgsForDefs* args = malloc();
+void students_load(List* list){
+    ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
     FILE* file = fopen((c_char*) filename, "r");
-    List* students = _args->list;
-    Student* student = _args->student;
+    args->list = list;
     while(!feof(file)){
-        Student
+        Student* student = malloc(sizeof(Student));
         fscanf(file,
                "\n\nSurname: %s\nName: %s\nGender: %s\nAge: %d\n"
                "Group: %d\nMath mark: %d\nPhysic mark: %d\nChemistry mark: %d\n",
                student->surname, student->name, student->gender, &student->age, &student->group,
                &student->math_mark, &student->phys_mark, &student->chemistry_mark);
-        students->append(args);
+        stud_count++;
+        args->student = student;
+        list->append(args);
     }
+    free(args);
     fclose(file);
 }

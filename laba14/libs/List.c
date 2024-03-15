@@ -15,6 +15,7 @@ List* init(List* result) {
     result->swap = list_swap;
     result->free_list = free_list;
     result->sort = sort_by_surname;
+    result->print = list_print;
     return result;
 }
 
@@ -113,5 +114,19 @@ void* list_swap(void* args) {
     prev_first_elem->value = prev_second_elem->value;
     prev_second_elem->value = tmp_student;
 
+    return NULL;
+}
+
+void* list_print(void* args){
+    List* list = args;
+    ArgsForDefs* _args = malloc(sizeof(ArgsForDefs));
+    _args->list = list;
+    for (int i = 0; i < list->size; i++){
+        _args->index = i;
+        Student* student = list->get(_args);
+        student->printStudent = print_stud;
+        student->printStudent(student);
+    }
+    free(_args);
     return NULL;
 }

@@ -26,6 +26,7 @@ Class List {
     void* (*swap)(void*);
     void* (*free_list)(void*);
     void* (*sort)(void*);
+    void* (*print)(void*);
 } List;
 
 Class ArgsForDefs{
@@ -40,6 +41,7 @@ void* list_append(void*);
 void* list_swap(void*);
 void* free_list(void*);
 void* sort_by_surname(void*);
+void* list_print(void*);
 
 List* init(List*);
 

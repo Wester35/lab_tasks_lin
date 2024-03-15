@@ -10,6 +10,7 @@
 
 EC_char* filename;
 
-void student_save(Student*);
-void student_load(List*);
+
+void students_save(List*);
+void students_load(List*);
 #endif //LABA14_FILE_H

@@ -98,3 +98,103 @@ Group: 1
 Math mark: 3
 Physic mark: 4
 Chemistry mark: 4
+
+
+Surname: Fedorov
+Name: Ivan
+Gender: Male
+Age: 16
+Group: 2
+Math mark: 4
+Physic mark: 3
+Chemistry mark: 5
+
+
+Surname: Kuznetsova
+Name: Sasha
+Gender: Female
+Age: 19
+Group: 1
+Math mark: 4
+Physic mark: 4
+Chemistry mark: 5
+
+
+Surname: Kuznetsova
+Name: Maria
+Gender: Female
+Age: 19
+Group: 1
+Math mark: 3
+Physic mark: 4
+Chemistry mark: 4
+
+
+Surname: Mikhailov
+Name: Artem
+Gender: Male
+Age: 16
+Group: 3
+Math mark: 5
+Physic mark: 5
+Chemistry mark: 5
+
+
+Surname: Novikov
+Name: Dmitry
+Gender: Male
+Age: 18
+Group: 1
+Math mark: 5
+Physic mark: 4
+Chemistry mark: 3
+
+
+Surname: Petrov
+Name: Artem
+Gender: Male
+Age: 20
+Group: 5
+Math mark: 5
+Physic mark: 4
+Chemistry mark: 5
+
+
+Surname: Petrova
+Name: Maria
+Gender: Female
+Age: 16
+Group: 4
+Math mark: 5
+Physic mark: 4
+Chemistry mark: 4
+
+
+Surname: Petrova
+Name: Valya
+Gender: Female
+Age: 16
+Group: 1
+Math mark: 3
+Physic mark: 5
+Chemistry mark: 5
+
+
+Surname: Sidorova
+Name: Anna
+Gender: Female
+Age: 19
+Group: 4
+Math mark: 5
+Physic mark: 5
+Chemistry mark: 3
+
+
+Surname: Smirnova
+Name: Ilya
+Gender: Female
+Age: 19
+Group: 1
+Math mark: 5
+Physic mark: 5
+Chemistry mark: 4

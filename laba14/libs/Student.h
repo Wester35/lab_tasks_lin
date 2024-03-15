@@ -14,6 +14,7 @@ EC_char femaleNames[10][20];
 EC_char maleNames[10][20];
 EC_char femaleSurnames[10][20];
 EC_char maleSurnames[10][20];
+extern int stud_count;
 
 Class Student {
     char surname[20];
@@ -26,10 +27,6 @@ Class Student {
     int chemistry_mark;
     void* (*printStudent)(void*);
 } Student;
-
-Class ArgsForStudent{
-    Student* student;
-} ArgsForStudent;
 
 
 void* print_stud(void*);
