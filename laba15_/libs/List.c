@@ -5,6 +5,8 @@
 #include "List.h"
 
 
+c_char* filename = "student_save.binar";
+
 List* init(List* result) {
     result = malloc(sizeof(List));
     result->head = NULL;
@@ -21,22 +23,18 @@ List* init(List* result) {
     return result;
 }
 
-c_char* filename = "student_save.binary";
-
 
 void students_save(List* list){
     ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
     args->list = list;
     FILE* file = fopen((c_char*) filename, "ab");
-    for (int i = 0; i < list->size; i++){
+    for (int i = 0; i < list->size; i++) {
         args->index = i;
         Student* student = list->get(args);
-        if(file == NULL){
-            fprintf(stderr, "This error raised while student trying to save");
-            exit(-1);
-        }
-        fwrite(student, sizeof(Student), 1, file);
-
+        Student* student_to_save = malloc(sizeof(Student));
+        memcpy(student_to_save, student, sizeof(Student));
+        fwrite(student_to_save, sizeof(Student), 1, file);
+        free(student_to_save);
     }
     free(args);
     fclose(file);
@@ -44,15 +42,20 @@ void students_save(List* list){
 
 void students_load(List* list){
     ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
-    FILE* file = fopen((c_char*) filename, "r");
+    FILE* file = fopen((c_char*) filename, "rb");
     args->list = list;
-    while(!feof(file)){
-        Student* student = malloc(sizeof(Student));
-        fread(student, sizeof(Student), 1, file);
-        //stud_count++;
-        args->student = student;
+    Student* student = malloc(sizeof(Student));
+    while(fread(student, sizeof(Student), 1, file) == 1) {
+        if (ferror(file)) {
+            fprintf(stderr, "Error reading from file\n");
+            exit(EXIT_FAILURE);
+        }
+        Student* student_to_append = malloc(sizeof(Student));
+        memcpy(student_to_append, student, sizeof(Student));
+        args->student = student_to_append;
         list->append(args);
     }
+    free(student);
     free(args);
     fclose(file);
 }
