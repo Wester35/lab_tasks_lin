@@ -4,12 +4,18 @@
 #include "libs/List.h"
 #include <string.h>
 #include <time.h>
-
+//#define for_in(iterations) \
+//{ \
+//    typeof(iterations) _iterations = (iterations); \
+//    for(int i = 0; i < _iterations; i++) {  \
+//}
+//#define for_in_end }
+#define memory_ext(size) malloc(sizeof(size))
 
 int main() {
     srand(time(NULL));
     system("chcp 65001");
-    ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
+    ArgsForDefs* args = memory_ext(ArgsForDefs);
     ArgsForStudent* argsForStudent = malloc(sizeof(ArgsForStudent));
     const int size_stud = 10;
     List* students = List(students);

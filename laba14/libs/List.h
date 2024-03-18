@@ -12,6 +12,7 @@
 #define List(students) init(students)
 
 
+
 Class Node {
     Student* value;
     struct Node* next;
@@ -27,6 +28,8 @@ Class List {
     void* (*free_list)(void*);
     void* (*sort)(void*);
     void* (*print)(void*);
+    void (*load_from_file)(struct List*);
+    void (*save_to_file)(struct List*);
 } List;
 
 Class ArgsForDefs{
@@ -35,6 +38,13 @@ Class ArgsForDefs{
     Student* second_student;
     int index;
 } ArgsForDefs;
+
+EC_char* filename;
+
+
+void students_save(List*);
+void students_load(List*);
+
 
 void* list_get(void*);
 void* list_append(void*);
