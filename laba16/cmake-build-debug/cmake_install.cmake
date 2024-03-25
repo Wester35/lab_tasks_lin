@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/wstr/Desktop/lab_tasks_lin/laba15_
+# Install script for directory: C:/Users/wstr/Desktop/lab_tasks_lin/laba16
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/laba15_")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/laba16")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/wstr/Desktop/lab_tasks_lin/laba15_/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/wstr/Desktop/lab_tasks_lin/laba16/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

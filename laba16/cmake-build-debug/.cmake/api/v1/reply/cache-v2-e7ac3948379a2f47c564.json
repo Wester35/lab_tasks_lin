@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Wstr35/Desktop/lab_tasks_lin/laba15_/cmake-build-debug"
+			"value" : "c:/Users/wstr/Desktop/lab_tasks_lin/laba16/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Wstr35/Desktop/lab_tasks_lin/laba15_/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/wstr/Desktop/lab_tasks_lin/laba16/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Wstr35/Desktop/lab_tasks_lin/laba15_"
+			"value" : "C:/Users/wstr/Desktop/lab_tasks_lin/laba16"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -515,7 +515,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/laba15_"
+			"value" : "C:/Program Files (x86)/laba16"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -731,7 +731,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "laba15_"
+			"value" : "laba16"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1138,7 +1138,7 @@
 			"value" : "TRUE"
 		},
 		{
-			"name" : "laba15__BINARY_DIR",
+			"name" : "laba16_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1147,10 +1147,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Wstr35/Desktop/lab_tasks_lin/laba15_/cmake-build-debug"
+			"value" : "C:/Users/wstr/Desktop/lab_tasks_lin/laba16/cmake-build-debug"
 		},
 		{
-			"name" : "laba15__IS_TOP_LEVEL",
+			"name" : "laba16_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1162,7 +1162,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "laba15__SOURCE_DIR",
+			"name" : "laba16_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1171,7 +1171,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Wstr35/Desktop/lab_tasks_lin/laba15_"
+			"value" : "C:/Users/wstr/Desktop/lab_tasks_lin/laba16"
 		}
 	],
 	"kind" : "cache",

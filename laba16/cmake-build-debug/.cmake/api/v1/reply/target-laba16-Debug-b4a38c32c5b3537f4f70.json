@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "laba15_.exe"
+			"path" : "laba16.exe"
 		},
 		{
-			"path" : "laba15_.pdb"
+			"path" : "laba16.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -52,7 +52,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/Wstr35/Desktop/lab_tasks_lin/laba15_/libs"
+					"path" : "C:/Users/wstr/Desktop/lab_tasks_lin/laba16/libs"
 				}
 			],
 			"language" : "C",
@@ -72,7 +72,7 @@
 			]
 		}
 	],
-	"id" : "laba15_::@6890427a1f51a3e7e1df",
+	"id" : "laba16::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -92,8 +92,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "laba15_",
-	"nameOnDisk" : "laba15_.exe",
+	"name" : "laba16",
+	"nameOnDisk" : "laba16.exe",
 	"paths" : 
 	{
 		"build" : ".",
