@@ -5,7 +5,7 @@
 #include "List.h"
 
 
-c_char* filename = "student_save.binar";
+c_char* filename = "student_save.binaar";
 
 List* init(List* result) {
     result = malloc(sizeof(List));
@@ -28,12 +28,23 @@ void students_save(List* list){
     ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
     args->list = list;
     FILE* file = fopen((c_char*) filename, "ab");
+    errno_t error_num = errno;
+
+    switch(error_num){
+        case(0): printf("No errors\n"); break;
+        case(1): printf("Operation not permitted (no access)\n"); break;
+        case(2): printf("No such file or directory\n"); break;
+        case(3): printf("No such process\n"); break;
+    }
+
     for (int i = 0; i < list->size; i++) {
         args->index = i;
         Student* student = list->get(args);
         Student* student_to_save = malloc(sizeof(Student));
         memcpy(student_to_save, student, sizeof(Student));
-        fwrite(student_to_save, sizeof(Student), 1, file);
+        fwrite(student_to_save,
+               sizeof(Student) - sizeof(student->printStudent),
+               1, file);
         free(student_to_save);
     }
     free(args);
@@ -43,15 +54,27 @@ void students_save(List* list){
 void students_load(List* list){
     ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
     FILE* file = fopen((c_char*) filename, "rb");
+    errno_t error_num = errno;
+
+    switch(error_num){
+        case(0): printf("No errors\n"); break;
+        case(1): printf("Operation not permitted (no access)\n"); break;
+        case(2): printf("No such file or directory\n"); break;
+        case(3): printf("No such process\n"); break;
+    }
+
     args->list = list;
     Student* student = malloc(sizeof(Student));
-    while(fread(student, sizeof(Student), 1, file) == 1) {
+    while(fread(student,
+                sizeof(Student) - sizeof(student->printStudent),
+                1, file) == 1) {
         if (ferror(file)) {
             fprintf(stderr, "Error reading from file\n");
             exit(EXIT_FAILURE);
         }
         Student* student_to_append = malloc(sizeof(Student));
         memcpy(student_to_append, student, sizeof(Student));
+        student_to_append->printStudent = print_stud;
         args->student = student_to_append;
         list->append(args);
     }

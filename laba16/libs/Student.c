@@ -5,8 +5,6 @@
 #include "Student.h"
 
 
-int stud_count = 0;
-
 c_char femaleNames[10][20] = {
         "Natasha",
         "Ilya",

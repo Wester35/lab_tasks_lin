@@ -6,6 +6,8 @@
 #define LABA12_STUDENT_H
 #include <stdio.h>
 #include <errno.h>
+
+
 #define Class typedef struct
 #define c_char const char
 #define EC_char extern const char
@@ -15,7 +17,6 @@ EC_char femaleNames[10][20];
 EC_char maleNames[10][20];
 EC_char femaleSurnames[10][20];
 EC_char maleSurnames[10][20];
-extern int stud_count;
 
 Class Student {
     char surname[20];
