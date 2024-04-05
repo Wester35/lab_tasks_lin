@@ -5,10 +5,14 @@
 #include "List.h"
 
 
-c_char* filename = "student_save.binaar";
+c_char* filename = "student_save.bin";
 
 List* init(List* result) {
     result = malloc(sizeof(List));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     result->head = NULL;
     result->end = NULL;
     result->size = 0;
@@ -26,6 +30,10 @@ List* init(List* result) {
 
 void students_save(List* list){
     ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     args->list = list;
     FILE* file = fopen((c_char*) filename, "ab");
     errno_t error_num = errno;
@@ -53,6 +61,10 @@ void students_save(List* list){
 
 void students_load(List* list){
     ArgsForDefs* args = malloc(sizeof(ArgsForDefs));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     FILE* file = fopen((c_char*) filename, "rb");
     errno_t error_num = errno;
 
@@ -65,6 +77,10 @@ void students_load(List* list){
 
     args->list = list;
     Student* student = malloc(sizeof(Student));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     while(fread(student,
                 sizeof(Student) - sizeof(student->printStudent),
                 1, file) == 1) {
@@ -73,6 +89,10 @@ void students_load(List* list){
             exit(EXIT_FAILURE);
         }
         Student* student_to_append = malloc(sizeof(Student));
+        if (errno == 12){
+            perror("Memory allocation error\n");
+            exit(errno);
+        }
         memcpy(student_to_append, student, sizeof(Student));
         student_to_append->printStudent = print_stud;
         args->student = student_to_append;
@@ -136,6 +156,10 @@ void* list_get(void* args) {
 void* list_append(void* args) {
     ArgsForDefs* _args = args;
     Node* new_node = malloc(sizeof(Node));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     new_node->value = _args->student;
     new_node->next = NULL;
     List* list = _args->list;
@@ -184,6 +208,10 @@ void* list_swap(void* args) {
 void* list_print(void* args){
     List* list = args;
     ArgsForDefs* _args = malloc(sizeof(ArgsForDefs));
+    if (errno == 12){
+        perror("Memory allocation error\n");
+        exit(errno);
+    }
     _args->list = list;
     for (int i = 0; i < list->size; i++){
         _args->index = i;
