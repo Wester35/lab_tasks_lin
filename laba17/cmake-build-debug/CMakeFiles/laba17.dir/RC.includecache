@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Wester35/Desktop/lab_tasks_lin/laba17/resources.rc
+winresrc.h
+C:/Users/Wester35/Desktop/lab_tasks_lin/laba17/winresrc.h
+

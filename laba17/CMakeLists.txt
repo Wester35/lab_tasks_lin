@@ -3,4 +3,5 @@ project(laba17 C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(laba17 main.c)
+add_executable(laba17 main.c
+        resources.rc)

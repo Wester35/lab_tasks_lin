@@ -1,0 +1,52 @@
+#include "winresrc.h"
+
+Ex4_Icon ICON "myicon.ico"
+/*
+Ex4_Menu MENU
+{
+ POPUP "&File"
+ {
+  MENUITEM "&Open...\tCtrl-O", 2
+  MENUITEM "&Save", 1
+  MENUITEM "Save &As...", 4
+  MENUITEM SEPARATOR
+  MENUITEM "&Hex view", 5, CHECKED GRAYED
+  MENUITEM "&Exit\tAlt-F4", 6
+ }
+ POPUP "&Edit"
+ {
+  MENUITEM "&Copy", 7
+  MENUITEM "&Paste", 8
+  POPUP "Popup"
+  {
+   MENUITEM "1", 9
+   MENUITEM "2", 10
+   MENUITEM "3", 11
+  }
+  MENUITEM SEPARATOR
+  MENUITEM "Search", 12
+ }
+ POPUP "&Help"
+ {
+  MENUITEM "&About...\tF1", 13
+ }
+}
+
+Ex4_Dlg DIALOG 100,100,90,40
+STYLE WS_POPUP|WS_CAPTION|DS_MODALFRAME
+CAPTION "The Window of Selyanin"
+FONT 14, "Mistral"
+{
+CONTROL "", 1, "STATIC", SS_LEFT, 5, 5, 80, 10
+CONTROL "OK", 2, "BUTTON", BS_DEFPUSHBUTTON, 5, 20, 80, 12
+CONTROL "No OK", 3, "BUTTON", BS_DEFPUSHBUTTON, 5, 30, 100, 12
+}
+*/
+GlebDialogBox DIALOG 50, 50, 150, 100
+STYLE WS_BORDER|WS_CAPTION
+FONT 14, "times new roman"
+CAPTION "Message Box"
+{
+    CONTROL "MessageBox", 1, "STATIC", 0, 2, 2, 80, 10
+    CONTROL "Exit", 2, "BUTTON", 0, 60, 30, 20
+}

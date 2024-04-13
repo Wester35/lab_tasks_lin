@@ -63,7 +63,8 @@ LRESULT CALLBACK MainWinProc(HWND hw,UINT msg,WPARAM wp,LPARAM lp) {
                 PostQuitMessage(0);
             else { /* все остальные команды */
                 if ((HIWORD(wp) == 0) && (LOWORD(wp) == ID_MYBUTTON))
-                    MessageBox(hw, "You pressed my button", "MessageBox", MB_OK | MB_ICONWARNING);
+                    //MessageBox(hw, "You pressed my button", "MessageBox", MB_OK | MB_ICONWARNING);
+                        DialogBox(h, "GlebDialogBox", hw, DlgProc);
                 if ((HIWORD(wp) == 0) && (LOWORD(wp) == ID_ROMAN_MYBUTTON)){
                     MessageBox(hw, "Roma is my button", "Roma Info", MB_OK | MB_ICONWARNING);
                     wsprintf(buf, "Command code: %d", LOWORD(wp));

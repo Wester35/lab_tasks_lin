@@ -1,0 +1,20 @@
+# ninja log v5
+3	2067	7347132544267957	CMakeFiles/untitled1.dir/main.c.obj	429a6ddc59583b2
+11	151	7347135638101907	CMakeFiles/untitled1.dir/my_own_resources.rc.obj	2f4e9521c0e450a4
+152	332	7347135639794411	untitled1.exe	86f9bded4556684e
+23	170	7347136711923522	CMakeFiles/untitled1.dir/my_own_resources.rc.obj	2f4e9521c0e450a4
+171	643	7347136716566463	untitled1.exe	86f9bded4556684e
+17	123	7347137066980510	CMakeFiles/untitled1.dir/my_own_resources.rc.obj	2f4e9521c0e450a4
+124	341	7347137069005817	untitled1.exe	86f9bded4556684e
+28	184	7347137225705845	CMakeFiles/untitled1.dir/my_own_resources.rc.obj	2f4e9521c0e450a4
+222	604	7347137229763612	untitled1.exe	86f9bded4556684e
+20	141	7347137393948691	CMakeFiles/untitled1.dir/my_own_resources.rc.obj	2f4e9521c0e450a4
+142	292	7347137395354872	untitled1.exe	86f9bded4556684e
+32	147	7347137546046995	CMakeFiles/untitled1.dir/my_own_resources.rc.obj	2f4e9521c0e450a4
+148	317	7347137547600439	untitled1.exe	86f9bded4556684e
+23	138	7347137724891102	CMakeFiles/untitled1.dir/my_own_resources.rc.obj	2f4e9521c0e450a4
+139	293	7347137726328572	untitled1.exe	86f9bded4556684e
+34	159	7347137946785065	CMakeFiles/untitled1.dir/my_own_resources.rc.obj	2f4e9521c0e450a4
+160	311	7347137948195904	untitled1.exe	86f9bded4556684e
+17	2374	7347138264518954	CMakeFiles/untitled1.dir/main.c.obj	429a6ddc59583b2
+2376	2545	7347138266221606	untitled1.exe	86f9bded4556684e

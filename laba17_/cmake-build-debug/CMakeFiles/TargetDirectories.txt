@@ -1,0 +1,3 @@
+C:/Users/Wester35/Desktop/lab_tasks_lin/laba17_/cmake-build-debug/CMakeFiles/laba17_.dir
+C:/Users/Wester35/Desktop/lab_tasks_lin/laba17_/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Wester35/Desktop/lab_tasks_lin/laba17_/cmake-build-debug/CMakeFiles/rebuild_cache.dir
